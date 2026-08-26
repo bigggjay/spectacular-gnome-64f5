@@ -1,0 +1,50 @@
+/* Login Page Styles */
+
+.login-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.login-section-left {
+  flex: 1;
+  background: linear-gradient(to bottom right, #ffffff, #f9fafb);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-section-right {
+  flex: 1;
+  background: linear-gradient(to bottom right, #4a1e8f, #6b21a8, #312e81);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .login-section-left {
+    display: none;
+  }
+  
+  .login-section-right {
+    width: 100%;
+  }
+}
+
+/* Animation for form inputs */
+input:focus {
+  box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.1);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* Smooth transitions */
+* {
+  transition: all 0.3s ease;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
