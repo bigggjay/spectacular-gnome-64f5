@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "mobile-offer-demo",
     "public": "dist",
     "ignore": [
       "firebase.json",

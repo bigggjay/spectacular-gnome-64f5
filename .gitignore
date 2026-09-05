@@ -1,13 +1,22 @@
 # Dependencies
 node_modules/
-package-lock.json
 yarn.lock
 
 # Build outputs
 dist/
 build/
+
+# Environment variables
+.env
 .env.local
-.env.*.local
+.env.*
+!.env.example
+
+# Firebase generated files
+.firebase/
+
+# Lock files
+package-lock.json
 
 # IDE
 .vscode/

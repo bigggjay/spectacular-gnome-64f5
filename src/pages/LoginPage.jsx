@@ -1,97 +1,61 @@
-import { useState } from 'react'
-import { FiEye, FiEyeOff } from 'react-icons/fi'
 import LoginForm from '../components/LoginForm'
 import '../styles/LoginPage.css'
 
-export default function LoginPage({ onLogin }) {
+export default function LoginPage({ onLogin, onViewDashboard }) {
   return (
-    <div className="flex h-screen">
-      {/* Left side - Light theme */}
-      <div className="hidden md:flex md:w-1/2 bg-gradient-to-br from-white to-gray-50 flex-col items-center justify-center p-8">
+    <div className="flex h-screen flex-col md:flex-row">
+      {/* Left side - Light theme with form */}
+      <div className="w-full md:w-1/2 bg-gradient-to-br from-white via-gray-50 to-gray-100 flex flex-col items-center justify-center p-6 sm:p-8 order-1 md:order-1">
         <div className="w-full max-w-md">
-          {/* Xfinity Logo */}
-          <div className="mb-12 flex justify-center">
-            <div className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-xfinity-blue to-xfinity-dark">
+          <div className="mb-8 text-center md:hidden">
+            <div className="text-5xl font-black tracking-[-0.06em] text-black leading-none" style={{ fontFamily: 'Georgia, serif' }}>
               Xfinity
             </div>
           </div>
 
-          {/* Features */}
-          <div className="space-y-8">
-            <div className="flex items-start space-x-4">
-              <div className="flex-shrink-0 mt-1">
-                <div className="w-6 h-6 rounded-full bg-xfinity-blue flex items-center justify-center">
-                  <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                </div>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900">Manage Your Account</h3>
-                <p className="text-gray-600 mt-1">Access your services and bill anytime</p>
-              </div>
-            </div>
+          <h2 className="text-3xl font-bold text-gray-900 mb-2">Welcome Back</h2>
+          <p className="text-gray-600 mb-8"># Sign in with your Xfinity ID</p>
 
-            <div className="flex items-start space-x-4">
-              <div className="flex-shrink-0 mt-1">
-                <div className="w-6 h-6 rounded-full bg-xfinity-blue flex items-center justify-center">
-                  <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                </div>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900">View Live TV</h3>
-                <p className="text-gray-600 mt-1">Stream your favorite shows and movies</p>
-              </div>
-            </div>
+          <LoginForm onLogin={onLogin} />
 
-            <div className="flex items-start space-x-4">
-              <div className="flex-shrink-0 mt-1">
-                <div className="w-6 h-6 rounded-full bg-xfinity-blue flex items-center justify-center">
-                  <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                </div>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900">Secure & Safe</h3>
-                <p className="text-gray-600 mt-1">Your data is protected with encryption</p>
-              </div>
+          {/* Footer Links */}
+          <div className="mt-8 space-y-3 text-sm text-gray-600">
+            <p className="text-center">
+              By signing in, you agree to our{' '}
+              <a href="#" className="text-xfinity-dark hover:underline">Terms of Service</a>
+              {' '}and{' '}
+              <a href="#" className="text-xfinity-dark hover:underline">Privacy Policy</a>.
+            </p>
+            <div className="flex justify-center">
+              <a href="#" className="text-xfinity-dark hover:underline">Forgot Password?</a>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Right side - Dark theme with form */}
-      <div className="w-full md:w-1/2 bg-gradient-to-br from-xfinity-dark via-purple-900 to-indigo-900 flex flex-col items-center justify-center p-6 sm:p-8">
-        <div className="w-full max-w-md">
-          <div className="mb-8 text-center md:hidden">
-            <div className="text-3xl font-bold text-white">
-              Xfinity
-            </div>
-          </div>
+      {/* Right side - Purple promo panel */}
+      <div className="promo-panel w-full md:w-1/2 relative overflow-hidden flex flex-col items-center justify-center p-6 sm:p-8 order-2 md:order-2 md:flex">
+        <div className="promo-grid" />
+        <div className="promo-glow" />
 
-          <h2 className="text-3xl font-bold text-white mb-2">Welcome Back</h2>
-          <p className="text-purple-200 mb-8">Sign in with your Xfinity ID</p>
+        <div className="promo-content relative z-10 w-full max-w-[640px] text-center">
+          <h1 className="promo-headline text-3xl xl:text-4xl font-black tracking-[-0.06em] text-white leading-[0.95] mb-4">
+            Let&apos;s cut your mobile bill in half
+          </h1>
 
-          <LoginForm onLogin={onLogin} />
+          <p className="promo-subtitle text-base xl:text-lg text-white/80 mb-6 max-w-[500px] mx-auto leading-relaxed">
+            Plus, only Xfinity&apos;s Mobile Plus plan includes device protection for life and phone upgrades every year.
+          </p>
 
-          {/* Footer Links */}
-          <div className="mt-8 space-y-3 text-sm text-purple-200">
-            <p className="text-center">
-              By signing in, you agree to our{' '}
-              <a href="#" className="text-white hover:underline">Terms of Service</a>
-              {' '}and{' '}
-              <a href="#" className="text-white hover:underline">Privacy Policy</a>.
-            </p>
-            <div className="flex justify-center space-x-4">
-              <a href="#" className="text-white hover:underline">Forgot Password?</a>
-              <span>•</span>
-              <a href="#" className="text-white hover:underline">Need Help?</a>
-            </div>
-          </div>
+          <button
+            type="button"
+            className="promo-button bg-white text-[#240a69] font-bold text-xl px-7 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200"
+          >
+            Calculate savings
+          </button>
         </div>
+
+        <div className="promo-torn" aria-hidden="true" />
       </div>
     </div>
   )

@@ -1,37 +1,99 @@
 /* Login Page Styles */
 
-.login-container {
-  display: flex;
-  min-height: 100vh;
+.promo-panel {
+  background: radial-gradient(circle at top, rgba(255,255,255,0.12), transparent 30%),
+    linear-gradient(135deg, #2d0d63 0%, #3b0f8a 25%, #3d1a88 45%, #230d5d 100%);
 }
 
-.login-section-left {
-  flex: 1;
-  background: linear-gradient(to bottom right, #ffffff, #f9fafb);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.promo-grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.24;
+  background-image: linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size: 22px 22px;
 }
 
-.login-section-right {
-  flex: 1;
-  background: linear-gradient(to bottom right, #4a1e8f, #6b21a8, #312e81);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.promo-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.09), transparent 52%);
+}
+
+.promo-content {
+  margin-top: -2rem;
+}
+
+.promo-headline {
+  font-family: 'Segoe UI', sans-serif;
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+}
+
+.promo-subtitle {
+  font-family: 'Segoe UI', sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.promo-button {
+  border: 1px solid rgba(255,255,255,0.7);
+  box-shadow: 0 12px 32px rgba(14, 9, 33, 0.25);
+}
+
+.promo-bottom {
+  margin-top: 2.5rem;
+}
+
+.promo-wordmark {
+  font-family: 'Segoe UI', sans-serif;
+  letter-spacing: -0.09em;
+  text-shadow: 0 10px 32px rgba(0, 0, 0, 0.25);
+}
+
+.promo-torn {
+  position: absolute;
+  left: -8%;
+  bottom: -12px;
+  width: 116%;
+  height: 100px;
+  background: rgba(255,255,255,0.18);
+  clip-path: polygon(
+    0% 42%,
+    4% 55%,
+    9% 50%,
+    14% 58%,
+    20% 48%,
+    25% 59%,
+    31% 50%,
+    37% 61%,
+    43% 47%,
+    49% 57%,
+    56% 43%,
+    61% 62%,
+    67% 49%,
+    72% 58%,
+    77% 44%,
+    83% 60%,
+    89% 48%,
+    94% 63%,
+    100% 46%,
+    100% 100%,
+    0% 100%
+  );
+  filter: blur(1px);
+  opacity: 0.75;
 }
 
 @media (max-width: 768px) {
-  .login-section-left {
-    display: none;
+  .promo-panel {
+    min-height: 460px;
+    padding: 1.25rem 1rem 2.25rem;
   }
-  
-  .login-section-right {
-    width: 100%;
+
+  .promo-content {
+    margin-top: 0;
   }
 }
 
-/* Animation for form inputs */
 input:focus {
   box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.1);
 }
@@ -40,7 +102,6 @@ button:active {
   transform: scale(0.98);
 }
 
-/* Smooth transitions */
 * {
   transition: all 0.3s ease;
 }

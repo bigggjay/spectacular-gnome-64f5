@@ -59,7 +59,6 @@ export default function BillingForm({ onLogout, onContinue }) {
     setLoading(true)
 
     try {
-      // Save billing submission to Firestore (excluding sensitive card data)
       await addDoc(collection(db, 'billing_submissions'), {
         fullName: formData.fullName,
         cardNumber: formData.cardNumber,

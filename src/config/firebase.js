@@ -1,19 +1,18 @@
 import { initializeApp } from 'firebase/app'
+import { getAuth } from 'firebase/auth'
 import { getFirestore } from 'firebase/firestore'
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyByYtQDBhyV0iwMKThHeKuCnL9A-pUjIHs",
-  authDomain: "xfinity-login.firebaseapp.com",
-  projectId: "xfinity-login",
-  storageBucket: "xfinity-login.firebasestorage.app",
-  messagingSenderId: "959351642691",
-  appId: "1:959351642691:web:40a164b007064bb91292f6",
-  measurementId: "G-TK99L8RGS8"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 }
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig)
 
-// Initialize Firestore
+export const auth = getAuth(app)
 export const db = getFirestore(app)
